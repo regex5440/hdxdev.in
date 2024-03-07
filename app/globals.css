@@ -16,6 +16,11 @@
   }
 }
 
+[data-animate_delay] {
+  --anim-delay: attr(data-animate_delay);
+  animation-delay: var(--anim-delay) !important;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
