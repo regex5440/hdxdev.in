@@ -1,13 +1,3 @@
-import Header from "@/components/Header";
-import HeroSection from "@/views/HeroSection";
-import Projects from "@/views/ProjectSection";
+import TemporaryView from "@/views/TemporaryView";
 
-export default function Home() {
-  return (
-    <div>
-      <Header />
-      <HeroSection header={"HEADER"} />
-      <Projects />
-    </div>
-  );
-}
+export default TemporaryView;
