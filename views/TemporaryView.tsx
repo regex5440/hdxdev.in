@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function TemporaryView() {
   return (
     <section className="w-full py-12 md:py-24">
-      <div className="container flex flex-col items-center justify-center gap-4 px-4 text-center md:gap-10 md:px-6">
+      <div className="flex flex-col items-center justify-center gap-4 px-4 text-center md:gap-10 md:px-6">
         <div className="space-y-3 text-center">
           <h2 className="text-3xl">HdxDev.in</h2>
           <sub>by</sub>
