@@ -1,3 +1,3 @@
 export default function Projects() {
-  return <div className="h-screen">PROJECTS</div>;
+  return <div className="h-2screen">PROJECTS</div>;
 }
