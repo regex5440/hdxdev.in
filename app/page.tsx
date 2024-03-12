@@ -80,8 +80,8 @@ export default function HeroSection() {
         <div ref={sectionContainer} className="h-2screen transition-opacity">
           <div className="sticky top-0 m-auto w-full h-screen flex flex-col items-center justify-center overflow-hidden">
             <h1 ref={heading} className="origin-center text-6xl">
-              H<span className="text-5xl">D </span>
-              <span className="text-4xl">x</span> D
+              H<span className="text-5xl">D</span>
+              <span className="text-4xl">x</span>D
               <span className="text-5xl">EV</span>
               <span className="text-2xl">.in</span>
             </h1>
