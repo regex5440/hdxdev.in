@@ -1,7 +1,14 @@
 "use client";
 import Header from "@/components/Header";
 import Projects from "@/views/ProjectSection";
-import { useEffect, useRef, useState } from "react";
+import TechStack from "@/views/TechStack";
+import {
+  UIEventHandler,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 //TODO: Do not preserve the scroll on refresh
 export default function HeroSection() {
@@ -9,62 +16,60 @@ export default function HeroSection() {
   const sectionContainer = useRef<HTMLDivElement>(null);
   const descriptionPara = useRef<HTMLParagraphElement>(null);
   const [headerVisible, setHeaderVisible] = useState(false);
+  const scrollHandler: ScrollHandler = useCallback((e) => {
+    const scrolled = window.scrollY;
+    const sectionContainerHeight = sectionContainer.current?.scrollHeight || 0;
+    requestAnimationFrame((t) => {
+      const sectionScrollLimit1 = sectionContainerHeight * 0.3;
+      // const sectionScrollLimit2 = sectionContainerHeight * 0.85;
+
+      //* Below code is for hero styling
+      if (heading.current) {
+        if (scrolled > 10) {
+          if (scrolled < sectionScrollLimit1) {
+            heading.current.style.textShadow = `${scrolled * 0.01}px ${
+              scrolled * 0.01
+            }px ${scrolled * 0.1}px rgba(0, 0, 0, 0.5)`;
+          }
+        } else {
+          heading.current.style.textShadow = "none";
+        }
+
+        if (scrolled > sectionScrollLimit1) {
+          heading.current.style.transform = `scale(${
+            1 + scrolled * 0.009
+          }) translateY(-${(scrolled - sectionScrollLimit1) * 0.1}px)`;
+          heading.current.style.opacity = `${1 - scrolled * 0.0001}`;
+        } else {
+          heading.current.style.opacity = "1";
+          heading.current.style.transform = `scale(${1 + scrolled * 0.009})`;
+        }
+      }
+      if (descriptionPara.current) {
+        descriptionPara.current.setAttribute(
+          "style",
+          "letter-spacing: " + scrolled * 0.01 + "px"
+        );
+        //* Header visibility
+        const clientBoundedRect =
+          descriptionPara.current.getBoundingClientRect();
+        if (clientBoundedRect.top <= 23) {
+          sectionContainer.current?.style.setProperty("opacity", "0");
+          setHeaderVisible(true);
+        } else {
+          setHeaderVisible(false);
+          sectionContainer.current?.style.setProperty("opacity", "1");
+        }
+      }
+    });
+  }, []);
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const sectionContainerHeight =
-            sectionContainer.current?.scrollHeight || 0;
-          document.onscroll = (e) => {
-            const scrolled = window.scrollY;
-            requestAnimationFrame((t) => {
-              const sectionScrollLimit1 = sectionContainerHeight * 0.3;
-              // const sectionScrollLimit2 = sectionContainerHeight * 0.85;
-
-              //* Below code is for hero styling
-              if (heading.current) {
-                if (scrolled > 10) {
-                  if (scrolled < sectionScrollLimit1) {
-                    heading.current.style.textShadow = `${scrolled * 0.01}px ${
-                      scrolled * 0.01
-                    }px ${scrolled * 0.1}px rgba(0, 0, 0, 0.5)`;
-                  }
-                } else {
-                  heading.current.style.textShadow = "none";
-                }
-
-                if (scrolled > sectionScrollLimit1) {
-                  heading.current.style.transform = `scale(${
-                    1 + scrolled * 0.009
-                  }) translateY(-${(scrolled - sectionScrollLimit1) * 0.1}px)`;
-                  heading.current.style.opacity = `${1 - scrolled * 0.0001}`;
-                } else {
-                  heading.current.style.opacity = "1";
-                  heading.current.style.transform = `scale(${
-                    1 + scrolled * 0.009
-                  })`;
-                }
-              }
-              if (descriptionPara.current) {
-                descriptionPara.current.setAttribute(
-                  "style",
-                  "letter-spacing: " + scrolled * 0.01 + "px"
-                );
-                //* Header visibility
-                const clientBoundedRect =
-                  descriptionPara.current.getBoundingClientRect();
-                if (clientBoundedRect.top <= 23) {
-                  sectionContainer.current?.style.setProperty("opacity", "0");
-                  setHeaderVisible(true);
-                } else {
-                  setHeaderVisible(false);
-                  sectionContainer.current?.style.setProperty("opacity", "1");
-                }
-              }
-            });
-          };
+          document.addEventListener("scroll", scrollHandler);
         } else {
-          document.onscroll = null;
+          document.removeEventListener("scroll", scrollHandler);
         }
       });
     });
@@ -90,7 +95,8 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-      <Projects />
+      <TechStack />
+      {/* <Projects /> */}
     </>
   );
 }
