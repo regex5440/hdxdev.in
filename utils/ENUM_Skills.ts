@@ -52,6 +52,10 @@ const Skills = {
       name: "WebRTC",
       icon: "https://user-images.githubusercontent.com/25181517/187070862-03888f18-2e63-4332-95fb-3ba4f2708e59.png",
     },
+    turborepo: {
+      name: "TurboRepo",
+      icon: "https://user-images.githubusercontent.com/4060187/196936104-5797972c-ab10-4834-bd61-0d1e5f442c9c.png",
+    },
   },
   BackEnd: {
     node: {
@@ -73,6 +77,10 @@ const Skills = {
     websocket: {
       name: "WebSockets",
       icon: "https://user-images.githubusercontent.com/25181517/187070862-03888f18-2e63-4332-95fb-3ba4f2708e59.png",
+    },
+    kafka: {
+      name: "Kafka",
+      icon: "https://user-images.githubusercontent.com/25181517/192107004-2d2fff80-d207-4916-8a3e-130fee5ee495.png",
     },
   },
   DevOps: {
@@ -103,6 +111,10 @@ const Skills = {
     github: {
       name: "GitHub",
       icon: "https://user-images.githubusercontent.com/25181517/192108374-8da61ba1-99ec-41d7-80b8-fb2f7c0a4948.png",
+    },
+    aws: {
+      name: "AWS",
+      icon: "https://user-images.githubusercontent.com/25181517/183896132-54262f2e-6d98-41e3-8888-e40ab5a17326.png",
     },
   },
   Database: {
