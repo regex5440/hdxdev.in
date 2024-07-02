@@ -33,7 +33,7 @@ export default function TechStack() {
           Continuously learning and focusing on latest technology...
         </p>
       </div>
-      <div className="grid grid-cols-2 grid-rows-[repeat(3,auto)] max-w-[50%] items-start justify-center gap-2 mt-7 mx-auto">
+      <div className="max-sm:flex max-sm:flex-wrap sm:grid sm:grid-cols-2 md:grid-rows-[repeat(3,auto)] w-[90%] md:w-1/2 md:max-w-3xl items-start justify-center gap-2 mt-7 mx-auto">
         {Object.entries(Skills).map(([technology, skills]) => (
           <fieldset
             key={technology}
