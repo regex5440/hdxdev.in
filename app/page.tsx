@@ -52,7 +52,7 @@ export default function HeroSection() {
           sectionContainer.current?.style.setProperty("opacity", "0");
           setHeaderVisible(true);
         } else {
-          setHeaderVisible(false);
+          // setHeaderVisible(false);
           sectionContainer.current?.style.setProperty("opacity", "1");
         }
       }

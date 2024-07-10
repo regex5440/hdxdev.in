@@ -159,6 +159,7 @@ export default function Projects() {
       </div>
       <div
         className="flex h-[85vh] relative group/projects overflow-hidden mt-10 data-[all-visible=true]:overflow-x-scroll *:hover:data-[all-visible=true]:blur-sm custom-scrollbar-x"
+        id={"projects"}
         ref={slideContainer}
         data-all-visible={allSlidesVisible}
       >

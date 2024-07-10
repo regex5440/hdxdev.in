@@ -20,7 +20,10 @@
   --anim-delay: attr(data-animate_delay);
   animation-delay: var(--anim-delay) !important;
 }
-
+html {
+  scroll-padding-top: 4rem;
+  scroll-behavior: smooth;
+}
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -29,6 +32,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  scroll-behavior: smooth;
 }
 
 .custom-scrollbar-x {

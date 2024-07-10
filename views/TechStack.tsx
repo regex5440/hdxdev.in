@@ -29,6 +29,7 @@ export default function TechStack() {
         backgroundImage: `url(${bg_project.src})`,
         backgroundSize: "contain",
       }}
+      id="stack"
     >
       <div className="h-full backdrop-blur backdrop-brightness-[25%]">
         <div className="*:translate-y-1/2 *:opacity-0 *:transition-all *:duration-1000 *:group-data-[visible=true]:opacity-[unset] *:group-data-[visible=true]:translate-y-0 text-center motion-reduce:*:transition-none">
