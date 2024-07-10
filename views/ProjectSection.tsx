@@ -6,10 +6,25 @@ import BrowserTemplate, { ProjectMetadata } from "@/components/BrowserTemplate";
 
 const ProjectData: ProjectMetadata[] = [
   {
+    type: "fe",
+    url: "https://gb.hdxdev.in",
+    title: "GridBox",
+    code: "https://github.com/regex5440/gridbox",
+    stack: ["NextJS", "TailwindCSS", "PostgreSQL", "TypeScript"],
+  },
+  {
+    type: "be",
+    // url: "https://marketplace.visualstudio.com/items?itemName=HDxDev.envdot",
+    title: "envdot - VSCode Extension",
+    description: "VSCode extension for auto-suggesting environment variables",
+    code: "https://github.com/regex5440/env.",
+    tags: ["vscode", "extension", "typescript"],
+  },
+  {
     title: "HD-Mailer",
     code: "https://github.com/regex5440/hd-mailer",
     type: "be",
-    description: "Mailing service for sending emails, used in other projects",
+    description: "Mailing microservice for emails, used in other projects",
     tags: ["microservice", "email", "kafka"],
     stack: [
       "NodeJS",
@@ -19,13 +34,6 @@ const ProjectData: ProjectMetadata[] = [
       "Kafka",
       "NGINX",
     ],
-  },
-  {
-    type: "fe",
-    url: "https://gb.hdxdev.in",
-    title: "GridBox",
-    code: "https://github.com/regex5440/gridbox",
-    stack: ["NextJS", "TailwindCSS", "PostgreSQL", "TypeScript"],
   },
   {
     type: "fe",
