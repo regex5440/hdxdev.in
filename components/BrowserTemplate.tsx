@@ -40,7 +40,9 @@ export default forwardRef(function BrowserTemplate(
   return (
     <div className={"group/browser " + className} ref={ref} style={style}>
       <div className="border pt-2 h-full w-full flex flex-col rounded-[inherit] relative overflow-hidden">
-        <div className="w-1/5 rounded-t-xl bg-slate-600 pl-4 py-1">{title}</div>
+        <div className="w-1/5 rounded-t-xl bg-slate-600 pl-4 py-1 text-nowrap text-ellipsis overflow-hidden">
+          {title}
+        </div>
         <div className="border-t flex-grow pointer-events-none">
           {url && (
             <iframe
