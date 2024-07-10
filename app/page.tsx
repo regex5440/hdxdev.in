@@ -1,4 +1,5 @@
 "use client";
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Projects from "@/views/ProjectSection";
 import TechStack from "@/views/TechStack";
@@ -89,10 +90,11 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-      <div className="h-4screen has-[[data-all-visible=true]]:h-screen">
+      <div className="min-h-4screen has-[[data-all-visible=true]]:min-h-2screen">
         <TechStack />
         <Projects />
       </div>
+      <Footer />
     </>
   );
 }
