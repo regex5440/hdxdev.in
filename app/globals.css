@@ -31,6 +31,34 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+.custom-scrollbar-x {
+  &::-webkit-scrollbar {
+    height: 5px;
+    width: 100%;
+  }
+  &:hover::-webkit-scrollbar {
+    height: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgb(100, 100, 100);
+    border-radius: 99999px;
+  }
+}
+
+.custom-scrollbar-y {
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 100%;
+  }
+  &:hover::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgb(100, 100, 100);
+    border-radius: 99999px;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
