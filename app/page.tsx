@@ -2,13 +2,7 @@
 import Header from "@/components/Header";
 import Projects from "@/views/ProjectSection";
 import TechStack from "@/views/TechStack";
-import {
-  UIEventHandler,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 //TODO: Do not preserve the scroll position of the page on refresh, go to top of the page on refresh
 export default function HeroSection() {
