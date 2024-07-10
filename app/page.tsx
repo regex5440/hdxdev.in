@@ -5,7 +5,6 @@ import Projects from "@/views/ProjectSection";
 import TechStack from "@/views/TechStack";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-//TODO: Do not preserve the scroll position of the page on refresh, go to top of the page on refresh
 export default function HeroSection() {
   const heading = useRef<HTMLHeadingElement>(null);
   const sectionContainer = useRef<HTMLDivElement>(null);
