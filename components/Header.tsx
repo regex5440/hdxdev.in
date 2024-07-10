@@ -52,7 +52,7 @@ export default function Header({ visible = false }: HeaderProps) {
             }
           >
             <Link
-              href=""
+              href={process.env.NEXT_PUBLIC_RESUME_URL || ""}
               download="Harsh-Dagar_Resume.pdf"
               title="Download Resume"
             >
