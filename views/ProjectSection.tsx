@@ -123,7 +123,6 @@ export default function Projects() {
         projectSection.current.offsetHeight;
       observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-          console.log(entry);
           if (entry.isIntersecting) {
             projectSection.current?.setAttribute("data-visible", "true");
             document.addEventListener("scroll", scrollHandler);
