@@ -8,7 +8,7 @@ const ProjectData: ProjectMetadata[] = [
   {
     type: "fe",
     url: "https://gb.hdxdev.in",
-    title: "GridBox",
+    title: "GridBox - E-commerce Platform",
     code: "https://github.com/regex5440/gridbox",
     stack: ["NextJS", "TailwindCSS", "PostgreSQL", "TypeScript"],
   },
@@ -38,7 +38,7 @@ const ProjectData: ProjectMetadata[] = [
   {
     type: "fe",
     url: "https://cc.hdxdev.in",
-    title: "Chit-Chat",
+    title: "Chit-Chat - Communication App",
     code: "https://github.com/regex5440/chit-chat",
     stack: ["ReactJS", "SASS", "MongoDB", "TypeScript", "ExpressJS"],
   },
@@ -72,7 +72,7 @@ export default function Projects() {
       if (slideContainer.current) {
         const slides = slideContainer.current
           .children as HTMLCollectionOf<HTMLDivElement>;
-        if (scrolledPercentage > -30) {
+        if (scrolledPercentage > -35) {
           slides[0].classList.remove("opacity-40", "-translate-y-1/3");
         }
         if (scrolledPercentage > 0 && scrolledPercentage < 95) {
@@ -145,12 +145,12 @@ export default function Projects() {
   return (
     <section
       data-visible={false}
-      className="group h-screen sticky top-16"
+      className="group h-screen sticky top-16 max-lg:mt-10"
       ref={projectSection}
     >
       <div className="mx-auto w-fit overflow-hidden -translate-x-1/2 transition-transform ease-out duration-[700ms] delay-100 has-[[data-scrolled=true]]:-translate-x-0">
         <h2
-          className="lg:text-5xl font-mono text-center translate-x-full transition-all ease-in-out duration-[1400ms] data-[scrolled=true]:translate-x-0 opacity-0 data-[scrolled=true]:drop-shadow-xl data-[scrolled=true]:opacity-100"
+          className="text-5xl font-mono text-center translate-x-full transition-all ease-in-out duration-[1400ms] data-[scrolled=true]:translate-x-0 opacity-0 data-[scrolled=true]:drop-shadow-xl data-[scrolled=true]:opacity-100"
           ref={projectHeadline}
           data-scrolled="false"
         >
@@ -158,7 +158,7 @@ export default function Projects() {
         </h2>
       </div>
       <div
-        className="flex h-[85vh] relative group/projects overflow-hidden mt-4 data-[all-visible=true]:overflow-x-scroll *:hover:data-[all-visible=true]:blur-sm custom-scrollbar-x"
+        className="flex h-[85vh] relative group/projects overflow-hidden mt-10 data-[all-visible=true]:overflow-x-scroll *:hover:data-[all-visible=true]:blur-sm custom-scrollbar-x"
         ref={slideContainer}
         data-all-visible={allSlidesVisible}
       >
@@ -166,7 +166,7 @@ export default function Projects() {
           <BrowserTemplate
             metadata={data}
             className={
-              `absolute w-3/4 h-[90%] shadow-2xl top-1/2 rounded-t-md -translate-y-1/2 transition-all duration-500 ease-out hover:scale-105 group-data-[all-visible=true]/projects:brightness-75 group-data-[all-visible=true]/projects:hover:brightness-100 group-data-[all-visible=true]/projects:hover:blur-0 bg-black ` +
+              `absolute max-md:w-11/12 md:w-3/4 h-[90%] shadow-2xl top-1/2 rounded-t-md -translate-y-1/2 transition-all duration-500 ease-out hover:scale-105 group-data-[all-visible=true]/projects:brightness-75 group-data-[all-visible=true]/projects:hover:brightness-100 group-data-[all-visible=true]/projects:hover:blur-0 bg-black ` +
               (index === 0
                 ? "group-data-[all-visible=false]/projects:left-1/2 group-data-[all-visible=false]/projects:-translate-x-1/2 opacity-40 -translate-y-1/3"
                 : "group-data-[all-visible=false]/projects:left-full")
@@ -175,7 +175,12 @@ export default function Projects() {
             style={
               allSlidesVisible
                 ? {
-                    left: `${(0.5 + index) * 10}%`,
+                    left: `${
+                      (0.5 + index) *
+                      (window.matchMedia("(min-width: 1024px)").matches
+                        ? 10
+                        : 30)
+                    }%`,
                   }
                 : {}
             }

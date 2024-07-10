@@ -20,6 +20,12 @@ const config: Config = {
         "3screen": "300vh",
         "4screen": "400vh",
       },
+      minHeight: {
+        unset: "unset",
+        "2screen": "200vh",
+        "3screen": "300vh",
+        "4screen": "400vh",
+      },
       scale: {
         15: "15",
       },

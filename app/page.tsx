@@ -90,7 +90,7 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-      <div className="min-h-4screen has-[[data-all-visible=true]]:min-h-2screen">
+      <div className="min-h-4screen has-[[data-all-visible=true]]:min-h-unset">
         <TechStack />
         <Projects />
       </div>

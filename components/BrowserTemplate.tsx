@@ -40,7 +40,7 @@ export default forwardRef(function BrowserTemplate(
   return (
     <div className={"group/browser " + className} ref={ref} style={style}>
       <div className="border pt-2 h-full w-full flex flex-col rounded-[inherit] relative overflow-hidden">
-        <div className="w-1/5 rounded-t-xl bg-slate-600 pl-4 py-1 text-nowrap text-ellipsis overflow-hidden">
+        <div className="lg:w-1/5 max-lg:w-1/2 rounded-t-xl bg-slate-600 pl-4 py-1 text-nowrap text-ellipsis overflow-hidden">
           {title}
         </div>
         <div className="border-t flex-grow pointer-events-none">
@@ -53,9 +53,11 @@ export default forwardRef(function BrowserTemplate(
             />
           )}
           {!url && (
-            <div className="absolute top-0 bottom-0 h-fit w-fit my-auto transition-all left-1/2 duration-300 group-data-[all-visible=false]/projects:-translate-x-1/2 group-data-[all-visible=true]/projects:left-4 group-[all-visible=true]/projects:-translate-x-0">
-              <div className="text-6xl">{title}</div>
-              <div className="text-2xl">{description}</div>
+            <div className="absolute top-0 bottom-0 h-fit my-auto w-full px-4 transition-all left-1/2 duration-300 group-data-[all-visible=false]/projects:-translate-x-1/2 group-data-[all-visible=true]/projects:left-0 group-[all-visible=true]/projects:-translate-x-0">
+              <div className="lg:text-6xl max-lg:text-3xl">{title}</div>
+              <div className="lg:text-2xl max-lg:text-xl mt-2">
+                {description}
+              </div>
             </div>
           )}
         </div>
