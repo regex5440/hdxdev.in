@@ -10,7 +10,7 @@ import {
   useState,
 } from "react";
 
-//TODO: Do not preserve the scroll on refresh
+//TODO: Do not preserve the scroll position of the page on refresh, go to top of the page on refresh
 export default function HeroSection() {
   const heading = useRef<HTMLHeadingElement>(null);
   const sectionContainer = useRef<HTMLDivElement>(null);
@@ -77,7 +77,7 @@ export default function HeroSection() {
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [scrollHandler]);
   return (
     <>
       <Header visible={headerVisible} />
@@ -95,8 +95,10 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-      <TechStack />
-      {/* <Projects /> */}
+      <div className="h-4screen has-[[data-all-visible=true]]:h-screen">
+        <TechStack />
+        <Projects />
+      </div>
     </>
   );
 }
