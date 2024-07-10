@@ -69,6 +69,12 @@ export default function HeroSection() {
       });
     });
     observer.observe(sectionContainer.current as Element);
+    if (sectionContainer.current && descriptionPara.current) {
+      if (descriptionPara.current.getBoundingClientRect().top <= 23) {
+        setHeaderVisible(true);
+      }
+    }
+
     return () => {
       observer.disconnect();
     };
