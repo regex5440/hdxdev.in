@@ -1,4 +1,5 @@
 "use client";
+import ComponentForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Projects from "@/views/ProjectSection";
@@ -99,6 +100,7 @@ export default function HeroSection() {
         <TechStack />
         <Projects />
       </div>
+      <ComponentForm />
       <Footer />
     </>
   );

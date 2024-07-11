@@ -63,6 +63,15 @@ body {
   }
 }
 
+.label-placeholder {
+  &:has(+ *:focus),
+  &:has(+ *:not([value=""], [data-empty="true"])) {
+    transform: translateY(-120%);
+    font-size: 0.8rem;
+    color: white;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
