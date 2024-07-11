@@ -24,14 +24,14 @@ export default function TechStack() {
     <section
       ref={sectionContainer}
       data-visible={false}
-      className="group min-h-[90vh]"
+      className="group"
       style={{
         backgroundImage: `url(${bg_project.src})`,
         backgroundSize: "contain",
       }}
       id="stack"
     >
-      <div className="h-full backdrop-blur backdrop-brightness-[25%]">
+      <div className="backdrop-blur-lg backdrop-brightness-[10%] min-h-[90vh]">
         <div className="*:translate-y-1/2 *:opacity-0 *:transition-all *:duration-1000 *:group-data-[visible=true]:opacity-[unset] *:group-data-[visible=true]:translate-y-0 text-center motion-reduce:*:transition-none">
           <h2 className="text-4xl">Got it all covered!</h2>
           <p className="text-xl delay-200">
