@@ -31,7 +31,7 @@ export default function TechStack() {
       }}
       id="stack"
     >
-      <div className="backdrop-blur-lg backdrop-brightness-[10%] min-h-[90vh]">
+      <div className="backdrop-blur-lg backdrop-brightness-[10%] pt-10 pb-14">
         <div className="*:translate-y-1/2 *:opacity-0 *:transition-all *:duration-1000 *:group-data-[visible=true]:opacity-[unset] *:group-data-[visible=true]:translate-y-0 text-center motion-reduce:*:transition-none">
           <h2 className="text-4xl">Got it all covered!</h2>
           <p className="text-xl delay-200">
