@@ -50,6 +50,7 @@ export default forwardRef(function BrowserTemplate(
               src={url}
               loading="lazy"
               sandbox=""
+              scrolling="no"
             />
           )}
           {!url && (
