@@ -1,3 +1,3 @@
 # HDxDev.in
 
-Harsh Dagar's upcoming portfolio page.
+Harsh Dagar's portfolio page.
