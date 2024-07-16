@@ -27,7 +27,7 @@ export default function ComponentForm() {
   const [formValue, setFormValue] = useState({
     fullname: "",
     email: "",
-    message: "",
+    message: "Could you provide me credentials to access & test your projects?",
   });
   const [formData, formAction] = useFormState(submitMessage, undefined);
   const [showFormTick, setShowFormTick] = useState(false);
