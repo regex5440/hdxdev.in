@@ -14,11 +14,12 @@ const ProjectData: ProjectMetadata[] = [
   },
   {
     type: "be",
-    // url: "https://marketplace.visualstudio.com/items?itemName=HDxDev.envdot",
+    url: "https://marketplace.visualstudio.com/items?itemName=HDxDev.envdot",
     title: "envdot - VSCode Extension",
     description: "VSCode extension for auto-suggesting environment variables",
     code: "https://github.com/regex5440/env.",
     tags: ["vscode", "extension", "typescript"],
+    noPreview: true,
   },
   {
     title: "HD-Mailer",

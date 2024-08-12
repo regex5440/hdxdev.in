@@ -11,10 +11,12 @@ export type ProjectMetadata = {
   url?: string;
   tags?: string[];
   description?: string;
+  noPreview?: boolean;
 } & (
   | {
       url: string;
       type: "fe";
+      noPreview?: boolean;
     }
   | {
       type: "be";
@@ -26,7 +28,7 @@ export type ProjectMetadata = {
 export default forwardRef(function BrowserTemplate(
   {
     children,
-    metadata: { type, title, code, stack, description, tags, url },
+    metadata: { type, title, code, stack, description, tags, url, noPreview },
     className,
     style,
   }: {
@@ -44,7 +46,7 @@ export default forwardRef(function BrowserTemplate(
           {title}
         </div>
         <div className="border-t flex-grow pointer-events-none">
-          {url && (
+          {!noPreview && url && (
             <iframe
               className="w-full h-full bg-white pointer-events-none select-none overflow-hidden"
               src={url}
@@ -53,7 +55,7 @@ export default forwardRef(function BrowserTemplate(
               scrolling="no"
             />
           )}
-          {!url && (
+          {(noPreview || !url) && (
             <div className="absolute top-0 bottom-0 h-fit my-auto w-full px-4 transition-all left-1/2 duration-300 group-data-[all-visible=false]/projects:-translate-x-1/2 group-data-[all-visible=true]/projects:left-0 group-[all-visible=true]/projects:-translate-x-0">
               <div className="lg:text-6xl max-lg:text-3xl">{title}</div>
               <div className="lg:text-2xl max-lg:text-xl mt-2">
