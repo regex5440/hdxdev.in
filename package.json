@@ -15,7 +15,6 @@
     "next": "14.1.1",
     "react": "^18",
     "react-dom": "^18",
-    "visitorapi": "^2.0.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
