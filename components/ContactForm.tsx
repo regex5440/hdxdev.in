@@ -2,6 +2,7 @@ import submitMessage from "@/actions/form";
 import { Check, Loader2 } from "lucide-react";
 import { memo, useEffect, useState } from "react";
 import { useFormState, useFormStatus } from "react-dom";
+import UserInfoInput from "./UserInfoInput";
 
 const FormButton = memo(function Button({ success }: { success: boolean }) {
   const { pending } = useFormStatus();
@@ -36,11 +37,12 @@ export default function ComponentForm() {
     if (formData?.success) {
       setShowFormTick(true);
       setTimeout(() => {
-        setFormValue({
+        setFormValue((state) => ({
+          ...state,
           fullname: "",
           email: "",
           message: "",
-        });
+        }));
         setShowFormTick(false);
       }, 2000);
     }
@@ -122,6 +124,7 @@ export default function ComponentForm() {
             data-empty={formValue.message.length === 0}
           />
         </div>
+        <UserInfoInput />
         <div>
           <FormButton success={showFormTick} />
         </div>

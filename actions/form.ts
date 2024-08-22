@@ -1,7 +1,6 @@
 "use server";
 
 import { FormSchema } from "@/@types/zod_schema";
-import { resolve } from "path";
 
 type StateType =
   | ({
@@ -33,9 +32,11 @@ export default async function submitMessage(
       },
       body: JSON.stringify({
         fromService: validateData.data.fullname,
-        toEmail: "harshdagar@hdxdev.in",
+        toEmail: process.env.EMAIL_TO,
         subject: `New Query from Portfolio`,
-        html: `<div><p>${validateData.data.message}</p> <br><br><b>From: ${validateData.data.email}</b></div>`,
+        html: `<div><p>${validateData.data.message}</p> <br><br><b>From: ${
+          validateData.data.email
+        }</b><br>EXTRAS: ${formData.get("extras")}</div>`,
       }),
     }).then((res) => res.json());
     return { success: true };
