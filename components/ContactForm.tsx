@@ -2,6 +2,7 @@ import submitMessage from "@/actions/form";
 import { Check, Loader2 } from "lucide-react";
 import { memo, useEffect, useState } from "react";
 import { useFormState, useFormStatus } from "react-dom";
+import UserInfoInput from "./UserInfoInput";
 
 const FormButton = memo(function Button({ success }: { success: boolean }) {
   const { pending } = useFormStatus();
@@ -23,19 +24,11 @@ const FormButton = memo(function Button({ success }: { success: boolean }) {
   );
 });
 
-type FormState = {
-  fullname: string;
-  email: string;
-  message: string;
-  extras: string;
-};
-
 export default function ComponentForm() {
-  const [formValue, setFormValue] = useState<FormState>({
+  const [formValue, setFormValue] = useState({
     fullname: "",
     email: "",
     message: "Could you provide me credentials to access & test your projects?",
-    extras: "",
   });
   const [formData, formAction] = useFormState(submitMessage, undefined);
   const [showFormTick, setShowFormTick] = useState(false);
@@ -54,18 +47,6 @@ export default function ComponentForm() {
       }, 2000);
     }
   }, [formData]);
-  useEffect(() => {
-    fetch(
-      `https://api.visitorapi.com/api/?pid=${process.env.NEXT_PUBLIC_PROJECT_ID}`
-    )
-      .then((res) => res.json())
-      .then((payload) => {
-        setFormValue((state) => ({
-          ...state,
-          extras: JSON.stringify(payload.data),
-        }));
-      });
-  }, [setFormValue]);
 
   return (
     <div className="w-fit mx-auto mt-10 mb-12 px-4">
@@ -143,7 +124,7 @@ export default function ComponentForm() {
             data-empty={formValue.message.length === 0}
           />
         </div>
-        <input type="hidden" name="extras" value={formValue.extras} />
+        <UserInfoInput />
         <div>
           <FormButton success={showFormTick} />
         </div>
