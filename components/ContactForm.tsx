@@ -54,7 +54,10 @@ export default function ComponentForm() {
       <p className="text-xl mt-4">
         Feel free to reach out to me for any queries or collaborations.
       </p>
-      <form className="flex flex-col gap-10 w-[90%] mt-10" action={formAction}>
+      <form
+        className="flex flex-col gap-10 w-[90%] mt-10 [&_input,&_textarea]:bg-gray-100"
+        action={formAction}
+      >
         {formData?.error && (
           <p className="text-red-500 text-lg">{formData.error}</p>
         )}
