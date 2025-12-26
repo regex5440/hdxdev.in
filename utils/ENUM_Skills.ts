@@ -82,6 +82,14 @@ const Skills = {
       name: "Kafka",
       icon: "https://user-images.githubusercontent.com/25181517/192107004-2d2fff80-d207-4916-8a3e-130fee5ee495.png",
     },
+    go: {
+      name: "GoLang",
+      icon: "https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/go.png",
+    },
+    python: {
+      name: "Python",
+      icon: "https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/python.png",
+    },
   },
   DevOps: {
     cicd: {
