@@ -22,7 +22,7 @@ export default function Header({ visible = false }: HeaderProps) {
           <Menu size={24} />
         </label>
         <input type="checkbox" id="menuTrigger" hidden />
-        <nav className="max-md:fixed max-md:isolation-auto max-md:-right-full max-md:transition-[right] max-md:bg-black max-md:bg-opacity-95 max-md:backdrop-blur-xs max-md:group-has-checked:right-0 max-md:pl-6 max-md:pr-10 max-md:text-2xl max-md:top-0 z-10 max-md:flex-col max-md:h-screen max-sm:w-full max-md:w-fit max-md:duration-300 flex gap-5 md:overflow-y-hidden md:items-center">
+        <nav className="max-md:fixed max-md:isolation-auto max-md:-right-full max-md:transition-[right] max-md:bg-black max-md:bg-opacity-95 max-md:backdrop-blur-xl max-md:group-has-checked:right-0 max-md:pl-6 max-md:pr-10 max-md:text-2xl max-md:top-0 z-10 max-md:flex-col max-md:h-screen max-sm:w-1/2 max-md:w-fit max-md:duration-300 flex gap-5 md:overflow-y-hidden md:items-center">
           <label className="md:hidden my-5" htmlFor="menuTrigger">
             <X size={32} className="ml-auto" />
           </label>
