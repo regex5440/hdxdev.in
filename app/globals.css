@@ -1,71 +1,138 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-:root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 0, 0, 0;
-}
+@theme {
+  --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+  --background-image-gradient-conic: conic-gradient(
+    from 180deg at 50% 50%,
+    var(--tw-gradient-stops)
+  );
 
-[data-animate_delay] {
-  --anim-delay: attr(data-animate_delay);
-  animation-delay: var(--anim-delay) !important;
-}
-html {
-  scroll-padding-top: 4rem;
-  scroll-behavior: smooth;
-}
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-  scroll-behavior: smooth;
-}
+  --height-1\/2screen: 50vh;
+  --height-2screen: 200vh;
+  --height-3screen: 300vh;
+  --height-4screen: 400vh;
 
-.custom-scrollbar-x {
-  &::-webkit-scrollbar {
-    height: 5px;
-    width: 100%;
-  }
-  &:hover::-webkit-scrollbar {
-    height: 8px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: rgb(100, 100, 100);
-    border-radius: 99999px;
-  }
-}
+  --min-height-unset: unset;
+  --min-height-2screen: 200vh;
+  --min-height-3screen: 300vh;
+  --min-height-4screen: 400vh;
 
-.custom-scrollbar-y {
-  &::-webkit-scrollbar {
-    width: 5px;
-    height: 100%;
+  --scale-15: 15;
+
+  --animate-slideLeft: slideLeft 0.8s ease-in-out;
+
+  @keyframes slideFadeIn {
+    from {
+      transform: translateY(150%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
-  &:hover::-webkit-scrollbar {
-    width: 8px;
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
   }
-  &::-webkit-scrollbar-thumb {
-    background: rgb(200, 200, 200);
-    border-radius: 99999px;
+  @keyframes slideLeft {
+    from {
+      margin-left: 50%;
+      translate: -50%;
+    }
+    to {
+      margin-left: 0%;
+      translate: 0%;
+    }
   }
 }
 
-.label-placeholder {
-  &:has(+ *:focus),
-  &:has(+ *:not([value=""], [data-empty="true"])) {
-    transform: translateY(-120%);
-    font-size: 0.8rem;
-    color: white;
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
   }
+}
+
+@utility text-balance {
+  text-wrap: balance;
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+
+  [data-animate_delay] {
+    --anim-delay: attr(data-animate_delay);
+    animation-delay: var(--anim-delay) !important;
+  }
+  html {
+    scroll-padding-top: 4rem;
+    scroll-behavior: smooth;
+  }
+  body {
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgb(var(--background-end-rgb))
+      )
+      rgb(var(--background-start-rgb));
+    scroll-behavior: smooth;
+  }
+
+  .custom-scrollbar-x {
+    &::-webkit-scrollbar {
+      height: 5px;
+      width: 100%;
+    }
+    &:hover::-webkit-scrollbar {
+      height: 8px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgb(100, 100, 100);
+      border-radius: 99999px;
+    }
+  }
+
+  .custom-scrollbar-y {
+    &::-webkit-scrollbar {
+      width: 5px;
+      height: 100%;
+    }
+    &:hover::-webkit-scrollbar {
+      width: 8px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgb(200, 200, 200);
+      border-radius: 99999px;
+    }
+  }
+
+  .label-placeholder {
+    &:has(+ *:focus),
+    &:has(+ *:not([value=''], [data-empty='true'])) {
+      transform: translateY(-120%);
+      font-size: 0.8rem;
+      color: white;
+    }
   }
 }

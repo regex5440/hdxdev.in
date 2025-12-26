@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="mt-10 px-2" id="footer">
-      <div className="flex gap-4 max-w-52 text-2xl justify-between mb-4 hover:*:underline *:underline-offset-2 mx-auto">
+      <div className="flex gap-4 max-w-52 text-2xl justify-between mb-4 *:hover:underline *:underline-offset-2 mx-auto">
         <Link
           href={"https://www.linkedin.com/in/harsh-dagar/"}
           title="LinkedIn"

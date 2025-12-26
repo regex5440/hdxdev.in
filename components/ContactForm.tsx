@@ -1,7 +1,7 @@
 import submitMessage from "@/actions/form";
 import { Check, Loader2 } from "lucide-react";
-import { memo, useEffect, useState } from "react";
-import { useFormState, useFormStatus } from "react-dom";
+import { memo, useActionState, useEffect, useState } from "react";
+import { useFormStatus } from "react-dom";
 import UserInfoInput from "./UserInfoInput";
 
 const FormButton = memo(function Button({ success }: { success: boolean }) {
@@ -30,7 +30,7 @@ export default function ComponentForm() {
     email: "",
     message: "Could you provide me credentials to access & test your projects?",
   });
-  const [formData, formAction] = useFormState(submitMessage, undefined);
+  const [formData, formAction] = useActionState(submitMessage, undefined);
   const [showFormTick, setShowFormTick] = useState(false);
 
   useEffect(() => {
@@ -49,12 +49,15 @@ export default function ComponentForm() {
   }, [formData]);
 
   return (
-    <div className="w-fit mx-auto mt-10 mb-12 px-4">
+    <div className="w-fit mx-auto my-30 px-4">
       <h2 className="text-4xl">Contact Me</h2>
       <p className="text-xl mt-4">
         Feel free to reach out to me for any queries or collaborations.
       </p>
-      <form className="flex flex-col gap-10 w-[90%] mt-10" action={formAction}>
+      <form
+        className="flex flex-col gap-10 w-[90%] mt-10 [&_input,&_textarea]:bg-gray-100"
+        action={formAction}
+      >
         {formData?.error && (
           <p className="text-red-500 text-lg">{formData.error}</p>
         )}
