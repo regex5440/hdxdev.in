@@ -167,7 +167,7 @@ export default function Projects() {
           <BrowserTemplate
             metadata={data}
             className={
-              `absolute max-md:w-11/12 md:w-3/4 h-[90%] shadow-2xl top-1/2 rounded-t-md -translate-y-1/2 transition-all duration-500 ease-out hover:scale-105 group-data-[all-visible=true]/projects:brightness-75 hover:group-data-[all-visible=true]/projects:brightness-100 hover:group-data-[all-visible=true]/projects:blur-none! bg-black ` +
+              `absolute max-md:w-11/12 md:w-3/4 h-[90%] shadow-2xl top-1/2 rounded-t-md -translate-y-1/2 transition-all duration-500 ease-out hover:scale-105 group-data-[all-visible=true]/projects:brightness-75 hover:group-data-[all-visible=true]/projects:brightness-100 hover:group-data-[all-visible=true]/projects:blur-none! bg-black/70 backdrop-blur-xl ` +
               (index === 0
                 ? "group-data-[all-visible=false]/projects:left-1/2 group-data-[all-visible=false]/projects:-translate-x-1/2 opacity-40 -translate-y-1/3"
                 : "group-data-[all-visible=false]/projects:left-full")

@@ -10,7 +10,7 @@ export default function Header({ visible = false }: HeaderProps) {
     <div
       data-visible={visible}
       className={
-        "group fixed py-3 px-7 top-0 w-full z-1 opacity-0 transition-all backdrop-blur-xs shadow-2xl data-[visible=true]:opacity-100 data-[visible=false]:pointer-events-none bg-black bg-opacity-80"
+        "group fixed py-3 px-7 top-0 w-full z-1 opacity-0 transition-all backdrop-blur-md drop-shadow-2xl data-[visible=true]:opacity-100 data-[visible=false]:pointer-events-none bg-opacity-80"
       }
     >
       <div className="flex justify-between relative">
