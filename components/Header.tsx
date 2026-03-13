@@ -47,7 +47,7 @@ export default function Header({ visible = false }: HeaderProps) {
           >
             <Link href={"#footer"}>Contact</Link>
           </div>
-          <div
+          {/* <div
             className={
               "md:border-l md:pl-2 group-data-[visible=true]:animate-[slideFadeIn_0.6s_ease-in-out_forwards_0.9s] opacity-0"
             }
@@ -59,7 +59,7 @@ export default function Header({ visible = false }: HeaderProps) {
             >
               Resume <Download className="inline" size={16} />
             </Link>
-          </div>
+          </div> */}
         </nav>
       </div>
     </div>
