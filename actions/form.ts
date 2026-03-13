@@ -16,6 +16,15 @@ type TurnstileVerifyResponse = {
   "error-codes"?: string[];
 };
 
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#x27;");
+}
+
 async function verifyTurnstileToken(
   token: string,
   remoteIp?: string,
@@ -85,6 +94,13 @@ export default async function submitMessage(
     return { error: "Captcha verification failed. Please try again." };
   }
 
+  const safeName = escapeHtml(validateData.data.fullname);
+  const safeEmail = escapeHtml(validateData.data.email);
+  const safeMessage = escapeHtml(validateData.data.message);
+  const rawExtras = formData.get("extras");
+  const safeExtras =
+    typeof rawExtras === "string" ? escapeHtml(rawExtras.slice(0, 800)) : "";
+
   try {
     await fetch(process.env.EMAIL_SERVICE as string, {
       method: "POST",
@@ -93,12 +109,10 @@ export default async function submitMessage(
         Authorization: `Bearer ${process.env.EMAIL_SERVICE_TOKEN}`,
       },
       body: JSON.stringify({
-        fromService: validateData.data.fullname,
+        fromService: safeName,
         toEmail: process.env.EMAIL_TO,
         subject: `New Query from Portfolio`,
-        html: `<div><p>${validateData.data.message}</p> <br><br><b>From: ${
-          validateData.data.email
-        }</b><br>EXTRAS: ${formData.get("extras")}</div>`,
+        html: `<div><p>${safeMessage}</p> <br><br><b>From: ${safeEmail}</b><br>EXTRAS: ${safeExtras}</div>`,
       }),
     }).then((res) => res.json());
     return { success: true };
