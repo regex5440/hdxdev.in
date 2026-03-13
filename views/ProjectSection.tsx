@@ -13,6 +13,13 @@ const ProjectData: ProjectMetadata[] = [
     stack: ["NextJS", "TailwindCSS", "PostgreSQL", "TypeScript"],
   },
   {
+    type: "fe",
+    url: "https://0to16.hdxdev.in",
+    code: "https://github.com/regex5440/0to16-web",
+    title: "0to16 - All in one parenting essentials App",
+    stack: ["ReactJS", "Tailwind", "TypeScript", "NodeJs", "MongoDB"],
+  },
+  {
     type: "be",
     url: "https://marketplace.visualstudio.com/items?itemName=HDxDev.envdot",
     title: "envdot - VSCode Extension",
